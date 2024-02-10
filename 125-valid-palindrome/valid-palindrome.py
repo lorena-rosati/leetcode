@@ -4,10 +4,10 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s_clean = ''.join(c.lower() for c in s if c.isalnum())
+        s = ''.join(c.lower() for c in s if c.isalnum())
 
-        for i in range(len(s_clean)//2):
-            if s_clean[i] != s_clean[len(s_clean) - i - 1]:
+        for i in range(len(s)//2):
+            if s[i] != s[len(s) - i - 1]:
                 return False
         
         return True
