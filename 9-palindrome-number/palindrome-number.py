@@ -4,10 +4,7 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
-        if x < 0:
-            return False
-        else:
-            return self.helper(str(x))
+        return self.helper(str(x))
 
     def helper(self,x):
         if len(x) == 1:
