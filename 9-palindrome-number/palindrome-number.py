@@ -7,15 +7,13 @@ class Solution(object):
 
         if x < 0:
             return False
-        elif x == 0:
-            return True
         else:
             temp = x
-            rev = ""
+            rev = 0
             while temp != 0:
-                rev += str(temp % 10)
+                rev = rev*10 + temp%10
                 temp = temp // 10
-            if str(x) == rev:
+            if x == rev:
                 return True
             else:
                 return False
