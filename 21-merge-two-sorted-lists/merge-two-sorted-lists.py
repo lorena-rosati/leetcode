@@ -13,7 +13,10 @@ class Solution(object):
         head = ListNode()
         temp = head
 
-        
+        if not list1:
+            return list2
+        elif not list2:
+            return list1
 
         while list1 and list2:
             if list1.val < list2.val:
