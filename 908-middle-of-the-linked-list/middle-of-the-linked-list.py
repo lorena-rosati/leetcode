@@ -12,12 +12,10 @@ class Solution(object):
         # without the use of a stack
 
         curr = head
-        count = 0
+        stack = []
         while(curr):
-            count += 1
+            stack.append(curr)
             curr = curr.next
-        mid = count//2
-        curr = head
-        for i in range(mid):
-            curr = curr.next
-        return curr
+        l = len(stack)
+        mid = l//2
+        return stack[mid]
