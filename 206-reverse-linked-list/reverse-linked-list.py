@@ -9,10 +9,10 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        temp = head
-        curr = temp
         prev = None
-        while curr:
+        curr = head
+        temp = curr
+        while (curr):
             temp = curr.next
             curr.next = prev
             prev = curr
