@@ -15,7 +15,6 @@ class Solution(object):
         while fast:
             fast = fast.next
             if fast:
-                fast = fast.next
-                slow = slow.next
+                fast, slow = fast.next, slow.next
         return slow
 
