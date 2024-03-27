@@ -11,11 +11,11 @@ class Solution(object):
         """
         # without the use of a stack
 
-        curr = head
-        stack = []
-        while(curr):
-            stack.append(curr)
-            curr = curr.next
-        l = len(stack)
-        mid = l//2
-        return stack[mid]
+        fast, slow = head, head
+        while fast:
+            fast = fast.next
+            if fast:
+                fast = fast.next
+                slow = slow.next
+        return slow
+
