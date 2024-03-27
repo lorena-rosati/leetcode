@@ -9,9 +9,8 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        curr = head
         stack = []
-        while curr:
-            stack.append(curr.val)
-            curr = curr.next
+        while head:
+            stack.append(head.val)
+            head = head.next
         return stack == stack[::-1]
