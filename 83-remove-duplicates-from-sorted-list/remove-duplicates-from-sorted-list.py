@@ -9,16 +9,12 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        if not head:
-            return None
 
-        curr = head.next
-        prev = head
-        while curr:
-            if prev.val == curr.val:
-                prev.next = curr.next
+        curr = head
+        while curr and curr.next:
+            if curr.val == curr.next.val:
+                curr.next = curr.next.next
             else:
-                prev = curr
-            curr = curr.next
-        
+                curr = curr.next
+
         return head
