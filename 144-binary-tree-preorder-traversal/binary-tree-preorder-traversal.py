@@ -8,17 +8,14 @@ class Solution(object):
     def __init__(self):
         self.result = []
 
-    def traverse(self, root):
-        if not root:
-            return
-        self.result.append(root.val)
-        self.traverse(root.left)
-        self.traverse(root.right)
-
     def preorderTraversal(self, root):
         """
         :type root: TreeNode
         :rtype: List[int]
         """
-        self.traverse(root)
+        if not root:
+            return
+        self.result.append(root.val)
+        self.preorderTraversal(root.left)
+        self.preorderTraversal(root.right)
         return self.result
