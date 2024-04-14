@@ -9,12 +9,12 @@ class Solution(object):
         self.result = []
 
     def traverse(self, root):
-        if root:
-            self.traverse(root.left)
-            self.result.append(root.val)
-            self.traverse(root.right)
-        else:
+        if not root:
             return
+            
+        self.traverse(root.left)
+        self.result.append(root.val)
+        self.traverse(root.right)
 
     def inorderTraversal(self, root):
         """
