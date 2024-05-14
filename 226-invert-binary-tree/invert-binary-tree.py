@@ -10,17 +10,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: TreeNode
         """
-        self.help(root)
+        if root:
+            self.invertRecursion(root)
         return root
-
-    def help(self, root):
-        if not root:
-            return None
-        else:
-            temp = root.left
-            root.left = root.right
-            root.right = temp
-            self.help(root.left)
-            self.help(root.right)
-
-        
+    
+    def invertRecursion(self, root):
+        temp = root.left
+        root.left = root.right
+        root.right = temp
+        if root.left:
+            self.invertTree(root.left)
+        if root.right:
+            self.invertTree(root.right)
+        return root
