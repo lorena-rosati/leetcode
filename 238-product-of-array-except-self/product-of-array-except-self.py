@@ -4,13 +4,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        ans = [1] * len(nums)
+        l = len(nums)
+        ans = [1] * l
         prefix = 1
-        for i in range(len(nums)):
+        for i in range(l):
             ans[i] = prefix
             prefix *= nums[i]
         postfix = 1
-        for i in range(len(nums)-1, -1, -1):
+        for i in range(l-1, -1, -1):
             ans[i] *= postfix 
             postfix *= nums[i]
         
