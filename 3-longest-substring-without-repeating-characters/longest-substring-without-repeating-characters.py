@@ -4,19 +4,20 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        max_len = 0
-        start = 0
-        hashtable = {}
-        s_len = len(s)
+        max_length = 0
+        l = 0
+        hashtable = {} #key is character, value is index
 
-        for end in range(s_len):
-            if s[end] in hashtable and hashtable[s[end]] >= start:
-                start = hashtable[s[end]] + 1
-            curr_len = end - start + 1
-            if curr_len > max_len:
-                max_len = curr_len
-            hashtable[s[end]] = end
-        return max_len
+        for r in range(len(s)):
+            # if current (end) is already in table, and part of our current substring
+            # start substring right after current character
+            if s[r] in hashtable and hashtable[s[r]] >= l:
+                l = hashtable[s[r]] + 1
+            curr_length = r - l + 1
+            max_length = max(curr_length, max_length)
+            hashtable[s[r]] = r
+        return max_length
+            
 
 
         
