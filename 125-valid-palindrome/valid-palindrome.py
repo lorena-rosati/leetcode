@@ -4,10 +4,15 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s = ''.join(c.lower() for c in s if c.isalnum())
+        strs = ""
+        for c in s:
+            if self.isAlphaNum(c):
+                strs += c.lower()
 
-        for i in range(len(s)//2):
-            if s[i] != s[len(s) - i - 1]:
-                return False
+        return strs == strs[::-1]
+
+    def isAlphaNum(self, c):
+        return (ord("A") <= ord(c) <= ord("Z") 
+                or ord("a") <= ord(c) <= ord("z")
+                or ord("0") <= ord(c) <= ord("9"))
         
-        return True
