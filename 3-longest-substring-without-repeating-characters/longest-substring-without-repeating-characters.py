@@ -10,7 +10,7 @@ class Solution(object):
 
         for r in range(len(s)):
             # if current (end) is already in table, and part of our current substring
-            # start substring right after current character
+            # start substring right after repeat of current character
             if s[r] in hashtable and hashtable[s[r]] >= l:
                 l = hashtable[s[r]] + 1
             curr_length = r - l + 1
