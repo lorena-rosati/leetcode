@@ -5,14 +5,6 @@ class Solution(object):
         :rtype: str
         """
         for word in words:
-            if self.isPal(word):
+            if word == word[::-1]:
                 return word
         return ""         
-
-    def isPal(self, word):
-        l, r = 0, len(word) - 1
-        while l < r:
-            if word[l] != word[r]:
-                return False
-            l, r = l + 1, r - 1
-        return True
