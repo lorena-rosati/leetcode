@@ -6,16 +6,13 @@ class Solution(object):
         """
         l, r = 0, len(s) - 1
         while l < r:
-            if not self.isAlphaNum(s[l]):
+            while l < r and not self.isAlphaNum(s[l]):
                 l += 1
-                continue
-            if not self.isAlphaNum(s[r]):
+            while l < r and not self.isAlphaNum(s[r]):
                 r -= 1
-                continue
-            if s[r].lower() == s[l].lower():
-                l, r = l + 1, r - 1
-            else:
+            while s[r].lower() != s[l].lower():
                 return False
+            l, r = l + 1, r - 1
         return True
 
     def isAlphaNum(self, c):
