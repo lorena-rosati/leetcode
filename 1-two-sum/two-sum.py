@@ -6,10 +6,7 @@ class Solution(object):
         :rtype: List[int]
         """
         hashtable = {}
-        l = len(nums)
-        for i in range(l):
-            current = nums[i]
-            if (target - current) in hashtable:
-                return [hashtable[target-current], i]
-            hashtable[current] = i
-        return []
+        for i in range(len(nums)):
+            if target - nums[i] in hashtable:
+                return [hashtable[target - nums[i]], i]
+            hashtable[nums[i]] = i
