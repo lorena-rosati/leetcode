@@ -5,6 +5,9 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
+        if len(magazine) < len(ransomNote):
+            return False
+
         hashtable = {}
         for c in magazine:
             hashtable[c] = 1 + hashtable.get(c, 0)
