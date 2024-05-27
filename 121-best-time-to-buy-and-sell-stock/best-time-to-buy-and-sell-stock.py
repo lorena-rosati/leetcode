@@ -4,8 +4,6 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        if len(prices) == 1:
-            return 0
 
         l, r = 0, 1
         maxProfit = 0
