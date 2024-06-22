@@ -7,23 +7,23 @@ class Solution(object):
         result = []
         n = sorted(nums)
 
-        for i in range(len(n)):
-            if i > 0 and n[i] == n[i-1]:
+        for a in range(len(n)):
+            if a > 0 and n[a] == n[a-1]:
                 continue
-
-            l, r = i + 1, len(n) - 1
+            l, r = a + 1, len(n) - 1
             while l < r:
-                sum = n[l] + n[r] + n[i]
-  
-                if sum < 0:
-                    l += 1
-                elif sum > 0:
-                    r -= 1
-                else:
-                    result.append([n[i], n[l], n[r]])
+                s = n[a] + n[l] + n[r]
+                if s == 0:
+                    result.append([n[a], n[l], n[r]])
                     l += 1
                     while n[l] == n[l-1] and l < r:
                         l += 1
+                elif s < 0:
+                    l += 1
+                else:
+                    r -= 1
+
         return result
 
-        
+            
+
