@@ -5,4 +5,18 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        return sorted(s) == sorted(t)
+        if (len(s) != len(t)):
+            return False
+        
+        hashmap = {}
+        for l in s:
+            hashmap[l] = 1 + hashmap.get(l, 0)
+        
+        for l in t:
+            hashmap[l] = hashmap.get(l, 0) -1
+        
+        for key in hashmap:
+            if hashmap[key] != 0:
+                return False
+        
+        return True
