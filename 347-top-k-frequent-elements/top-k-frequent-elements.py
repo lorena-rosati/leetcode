@@ -5,20 +5,23 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        # have an array of size len(nums) + 1, where each index will have the numbers that occur the index # of times
-        # hash map with keys as values and values as # occurences
-        hashMap = {}
+        d = {}
         for n in nums:
-            hashMap[n] = 1 + hashMap.get(n, 0)
-
-        arr = [[] for _ in range(len(nums)+1)]
-
-        for key in hashMap:
-            arr[hashMap[key]].append(key)
-
-        result = []
-        for i in range(len(arr)-1, 0, -1):
-            for n in arr[i]:
-                result.append(n)
-                if len(result) == k:
-                    return result
+            d[n] = 1 + d.get(n, 0)
+        
+        a = [[] for _ in range(len(nums)+1)]
+        # index is how many times element shows up, value is an array of the values
+        for key in d:
+            a[d[key]].append(key)
+        
+        s = []
+        count = 0
+        for i in range(len(a) - 1, 0, -1):
+            if a[i] != []:
+                for j in a[i]:
+                    s.append(j)
+                    count += 1
+                    if count == k:
+                        return s
+        
+        return s
