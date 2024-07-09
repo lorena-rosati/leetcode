@@ -4,9 +4,15 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        d = defaultdict(list)
+        # default dict of list values
+        # keys of dictionary are tuples of the letters in the string
+        # values are lists of anagrams for that combination of letters
+        # sorted_tuple = tuple(sorted(s))
+
+        hashmap = defaultdict(list)
+
         for s in strs:
-            ss = ''.join(sorted(s))
-            d[ss].append(s)
-        
-        return d.values()
+            hashmap[tuple(sorted(s))].append(s)
+
+        return hashmap.values()
+
