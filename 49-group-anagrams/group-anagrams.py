@@ -12,7 +12,10 @@ class Solution(object):
         hashmap = defaultdict(list)
 
         for s in strs:
-            hashmap[tuple(sorted(s))].append(s)
+            key = [0] * 26
+            for c in s:
+                key[ord(c) - ord('a')] += 1
+            hashmap[tuple(key)].append(s)
 
         return hashmap.values()
 
