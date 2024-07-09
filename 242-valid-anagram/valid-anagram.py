@@ -7,16 +7,17 @@ class Solution(object):
         """
         if (len(s) != len(t)):
             return False
-        
-        hashmap = {}
-        for l in s:
-            hashmap[l] = 1 + hashmap.get(l, 0)
-        
-        for l in t:
-            hashmap[l] = hashmap.get(l, 0) -1
-        
+
+        hashmap = defaultdict(int)
+
+        for c in s:
+            hashmap[c] += 1
+
+        for c in t:
+            hashmap[c] -= 1
+
         for key in hashmap:
             if hashmap[key] != 0:
                 return False
-        
+
         return True
