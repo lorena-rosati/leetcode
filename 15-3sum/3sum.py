@@ -4,26 +4,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        result = []
-        n = sorted(nums)
+        nums_sorted = sorted(nums)
 
-        for a in range(len(n)):
-            if a > 0 and n[a] == n[a-1]:
+        i, res = 0, []
+
+        for i in range(len(nums)):
+            # check if previous is same as current and continue
+            if i > 0 and nums_sorted[i] == nums_sorted[i-1]:
+                i += 1
                 continue
-            l, r = a + 1, len(n) - 1
+            l, r = i + 1, len(nums_sorted) - 1
             while l < r:
-                s = n[a] + n[l] + n[r]
-                if s == 0:
-                    result.append([n[a], n[l], n[r]])
+                sum = nums_sorted[i] + nums_sorted[l] + nums_sorted[r] 
+                if sum == 0:
+                    res.append([nums_sorted[i], nums_sorted[l], nums_sorted[r]])
+                    # increment l and if previous one is same keep incrementing in while loop
                     l += 1
-                    while n[l] == n[l-1] and l < r:
+                    while nums_sorted[l] == nums_sorted[l-1] and l < r:
                         l += 1
-                elif s < 0:
+                elif sum < 0:
                     l += 1
                 else:
-                    r -= 1
+                    r -= 1              
 
-        return result
-
-            
-
+        return res
