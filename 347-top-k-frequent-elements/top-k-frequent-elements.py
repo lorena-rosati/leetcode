@@ -8,10 +8,6 @@ class Solution(object):
         arr = [[] for _ in range(len(nums) + 1)]
         res = []
 
-        # we want to find out how many times each element appears, use hashmap
-        # arr is array where index represents how many times the array of values at the index appears
-        # iterate backwards through arr to find k most freq elements
-
         hashmap = {}
         for n in nums:
             hashmap[n] = hashmap.get(n, 0) + 1
